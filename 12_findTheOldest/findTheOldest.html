@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>find the oldest</title>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <script>
+      const findTheOldest = function(obj) {
+  let birthYear;
+  let deathYear;
+  let age = [];
+  let yearToday = new Date();
+
+
+  for (i = 0; i < obj.length; i++) {
+    if (obj[i].hasOwnProperty('yearOfDeath')) {
+    birthYear = obj[i]['yearOfBirth'];
+    deathYear = obj[i]['yearOfDeath'];
+    personAge = deathYear - birthYear;
+    age.push(personAge);
+    console.log(age);
+    } else {
+      birthYear = parseInt(obj[i]['yearOfBirth']);
+      deathYear = parseInt(yearToday.getFullYear);
+      personAge = deathYear - birthYear;
+      age.push(personAge);
+      console.log(age);
+    }
+  }
+  let oldestPerson = age.indexOf(Math.max(...age));
+  console.log(obj[oldestPerson]);
+}
+
+const people = [
+  {
+    name: "Carly",
+    yearOfBirth: 2018,
+  }, 
+  {
+    name: "Ray",
+    yearOfBirth: 1962,
+    yearOfDeath: 2011,
+  },
+  {
+    name: "Jane",
+    yearOfBirth: 1912,
+    yearOfDeath: 1941,
+  },
+]
+
+findTheOldest(people);
+
+
+
+
+    </script>
+  </body>
+</html>
