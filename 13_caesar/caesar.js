@@ -11,22 +11,18 @@ const caesar = function(phrase, shiftNum) {
       encryptedPhrase += phraseLetter;
     } else if (phraseLetter.toUpperCase() === phraseLetter) {
       shiftedLetterPosition = alphaUp.indexOf(phraseLetter) + shiftNum;
-      if (shiftedLetterPosition > 25) {
-        shiftedLetterPosition = shiftedLetterPosition - 26;
-      }
       if (shiftedLetterPosition < 0) {
-        shiftedLetterPosition = shiftedLetterPosition + 26;
-       }           
+        shiftedLetterPosition += 26;
+      }
+      shiftedLetterPosition %= 26;
       shiftedLetter = alphaUp.substring(shiftedLetterPosition, shiftedLetterPosition + 1);
       encryptedPhrase += shiftedLetter;
     } else {
         shiftedLetterPosition = alphaLow.indexOf(phraseLetter) + shiftNum;
-        if (shiftedLetterPosition > 25) {
-          shiftedLetterPosition = shiftedLetterPosition - 26;
-        }
         if (shiftedLetterPosition < 0) {
-          shiftedLetterPosition = shiftedLetterPosition + 26;
-         } 
+          shiftedLetterPosition += 26;
+        }
+        shiftedLetterPosition %= 26;
         shiftedLetter = alphaLow.substring(shiftedLetterPosition, shiftedLetterPosition + 1);
         encryptedPhrase += shiftedLetter;
     }
